@@ -1,0 +1,21 @@
+
+
+  <swiper
+    [slidesPerView]="3.5"
+    [spaceBetween]="20"
+    [pagination]="false"
+    [navigation]="false"
+    direction="horizontal"
+
+  >
+    <ng-template swiperSlide *ngFor="let pelicula of peliculas">
+      <ion-card style="width: 130px; height: 190px; margin: 0 auto;"(click)="verDetalle(pelicula.id + '')">
+        <img
+          [src]="pelicula.poster_path | imagen"
+          style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;"
+        />
+      </ion-card>
+    </ng-template>
+  </swiper>
+
+

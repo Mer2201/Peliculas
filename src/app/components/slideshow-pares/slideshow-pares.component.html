@@ -1,0 +1,30 @@
+<swiper
+  [slidesPerView]="3.5"
+  [spaceBetween]="10"
+  [pagination]="false"
+  [navigation]="false"
+  direction="horizontal"
+>
+  <!-- Películas en pares -->
+  <ng-template swiperSlide *ngFor="let par of peliculas | pares">
+    <div style="display: flex; flex-direction: column; gap: 8px; align-items: center;">
+      <ion-card *ngFor="let pelicula of par" style="width: 120px; height: 160px;"(click)="verDetalle(pelicula.id + '')">
+        <img
+          [src]="pelicula.poster_path | imagen"
+          style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;"
+        />
+      </ion-card>
+    </div>
+  </ng-template>
+
+  <!-- Slide del botón -->
+  <ng-template swiperSlide>
+    <div style="display: flex; flex-direction: column; height: 100%; justify-content: center; align-items: center;">
+      <ion-card style="width: 120px; height: 336px; display: flex; justify-content: center; align-items: center;">
+        <ion-button expand="block" size="large" class="btn-mas" (click)="onClick()">
+          <ion-icon name="add" slot="icon-only"></ion-icon>
+        </ion-button>
+      </ion-card>
+    </div>
+  </ng-template>
+</swiper>

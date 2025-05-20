@@ -1,0 +1,18 @@
+
+
+
+  <swiper
+    [slidesPerView]="1"
+    [spaceBetween]="10"
+    [pagination]="{ clickable: true }"
+    [navigation]="false"
+    direction="horizontal"
+    class="mySwiper"
+  >
+    <ng-template swiperSlide *ngFor="let pelicula of peliculas">
+      <ion-card (click)="verDetalle(pelicula.id + '')">
+        <img [src]="pelicula.backdrop_path | imagen" />
+      </ion-card>
+    </ng-template>
+  </swiper>
+
